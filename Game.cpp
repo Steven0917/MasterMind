@@ -6,8 +6,6 @@
  */
 
 #include "Game.h"
-
-
 #include <iostream>
 
 using std::cout;
@@ -24,29 +22,35 @@ Game::~Game() {
 
 void Game::Init() {
 
-	cout << "Welcome to Master Mind Game!" << endl << endl;
-	cout << "Currently we support human breaker only." << endl << endl;
-
+	cout << "*************************************************************************" << endl;
+	cout << endl << "Welcome to Master Mind Game!" << endl << endl;
 
 	cout << "Rules:" << endl;
-	cout << "  4 code pegs with 6 colors [1, 6]" << endl;
-	cout << "  Maximum 10 guesses" << endl;
-	cout << "  Key pegs, Black: correct in both color and position" << endl;
-	cout << "            White: correct color in the wrong position" << endl << endl;
+	cout << "1. Four code pegs with Six colors [1, 6]" << endl;
+	cout << "2. Maximum Ten guesses" << endl;
+	cout << "3. Key pegs, Black: correct in both color and position" << endl;
+	cout << "             White: correct color in the wrong position" << endl;
+	cout << "4. Two round games, you will play as code breaker and code make separately." << endl << endl;
 
-	cout << "Please check below for more details" << endl;
+	cout << "Please check below wiki page for more details:" << endl;
 	cout << "https://en.wikipedia.org/wiki/Mastermind_%28board_game%29" << endl << endl;
+	cout << "*************************************************************************" << endl;
+}
 
+void Game::Start() {
+	PlayAsCodeBreaker();
+	PlayAsCodeMaker();
+}
+
+void Game::PlayAsCodeBreaker() {
+	cout << endl << "Round One" << endl;
 	cout << "Code maker  : AlphaCat" << endl;
 	cout << "Code breaker: You" << endl << endl;
 
 	countGuess = 0;
-}
-
-void Game::Start() {
 	alphaCat.MakeCode(code);
 	cout << endl << "Code is made: **** " << endl << endl;
-//	cout << endl << "Code is made as ";\
+//	cout << endl << "Code is made as ";
 //	code.PrintCode();
 //	cout << endl;
 
@@ -54,7 +58,7 @@ void Game::Start() {
 		human.Guess(guess);
 		alphaCat.Feedback(code, guess, keys);
 		if (keys.isAllHit()) {
-			ifWin = true; // You win.
+			isWin = true; // You win.
 			return;
 		} else {
 			cout << "Black " << keys.GetBlackKey() << " White " << keys.GetWhiteKey() << endl;
@@ -62,18 +66,25 @@ void Game::Start() {
 		}
 
 	}
-	ifWin = false; // You lose.
-	return;
-}
-
-void Game::End() {
-	if (ifWin) {
+	isWin = false; // You lose.
+	if (isWin) {
 		cout << "Congratulations! You win in " << countGuess << " moves!" << endl << endl;
 	} else {
 		cout << "You lose in breaking the code. The right code is ";
 		code.PrintCode();
 		cout << endl << endl;
 	}
+	return;
+}
+
+void Game::PlayAsCodeMaker() {
+	cout << endl << "Round Two" << endl;
+	cout << "Code maker  : You" << endl;
+	cout << "Code breaker: AlphaCat" << endl << endl;
+
+}
+
+void Game::End() {
 
 }
 

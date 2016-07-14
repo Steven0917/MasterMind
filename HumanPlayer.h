@@ -9,14 +9,12 @@
 #define HUMANPLAYER_H_
 
 #include "CodeBreaker.h"
+#include "CodeMaker.h"
 
-class HumanPlayer: public CodeBreaker {
+class HumanPlayer: public CodeBreaker, CodeMaker {
 public:
 	HumanPlayer();
 	virtual ~HumanPlayer();
-
-	virtual void Guess(Code& guess);
-	//virtual void BreakCode();
 };
 
 #endif /* HUMANPLAYER_H_ */

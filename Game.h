@@ -22,11 +22,11 @@ public:
 	void End();
 
 protected:
-//	void StartHumanBreaker();
-//	void StartAIBreaker();
+	void PlayAsCodeBreaker();
+	void PlayAsCodeMaker();
 
 private:
-	bool        ifWin;
+	bool        isWin;
 	const int   maxGuess = 10;
     int         countGuess;
 	AlphaCat    alphaCat;

@@ -6,21 +6,27 @@
  */
 
 #include "AlphaCat.h"
+#include "BaseCodeMakerImpl.h"
 #include "Code.h"
 
 AlphaCat::AlphaCat() {
-	// TODO Auto-generated constructor stub
+	mpCodeMakerImpl = new BaseCodeMakerImpl();
+	mpCodeBreakerImpl = nullptr;
 
 }
 
 AlphaCat::~AlphaCat() {
-	// TODO Auto-generated destructor stub
+	if (mpCodeMakerImpl) {
+		delete mpCodeMakerImpl;
+	}
+	if (mpCodeBreakerImpl) {
+		delete mpCodeBreakerImpl;
+	}
 }
 
-void AlphaCat::MakeCode(Code& code) {
-	code.MakeRandomCode();
+
+void AlphaCat::Guess(Code& guess) {
+//	guess.SetCode()
 }
 
-void AlphaCat::Feedback(Code& code, Code& guess, Keys& keys) {
-	code.CheckGuess(guess, keys);
-}
+
