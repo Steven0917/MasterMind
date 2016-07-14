@@ -7,8 +7,7 @@
 
 #include "Code.h"
 #include <time.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
 
 Code::Code() {
     // TODO Auto-generated constructor stub
@@ -28,7 +27,7 @@ void Code::CheckGuess(Code& guess, Keys& keys) {
 
     // Check for direct hits
     for (i = 0; i < num_code; i++) {
-        if (code[i] == guess[i]) {
+        if (code[i] == guess.code[i]) {
             hits++;
             hitmap[i] = 1;
             map[i] = 1;
@@ -47,7 +46,7 @@ void Code::CheckGuess(Code& guess, Keys& keys) {
         if (!hitmap[i]) {
             for (j = 0; j < num_code; j++) {
                 if (!map[j]) {
-                    if (guess[i] == code[j]) {
+                    if (guess.code[i] == code[j]) {
                         onlist++;
                         map[j] = 1;
                         break;
@@ -65,18 +64,52 @@ void Code::CheckGuess(Code& guess, Keys& keys) {
 void Code::MakeRandomCode() {
     srand((int)time(0));
     for (int i = 0 ; i < num_code; i++) {
-        this->code[i] = rand() % num_color;
+        this->code[i] = rand() % num_color + 1; //Valid color [1, num_color]
     }
 }
 
-void Code::SetCode(int code[]) {
+bool Code::isValid(char code[]) {
+    for (int i = 0 ; i < num_code; i++) {
+    	//Valid color [1, num_color]
+        if ( code[i] <= 0 || code[i] > num_color ) {
+        	return false;
+        }
+    }
+    return true;
+}
+
+bool Code::SetCode(char code[]) {
+	if (!isValid(code)) {
+		return false;
+	}
     for (int i = 0 ; i < num_code; i++) {
         this->code[i] = code[i];
     }
+    return true;
+}
+
+bool Code::isValidASC2(char code[]) {
+    for (int i = 0 ; i < num_code; i++) {
+    	//Valid color [1, num_color]
+        if ( code[i] - '0' <= 0 || code[i] - '0'> num_color ) {
+        	return false;
+        }
+    }
+    return true;
+}
+
+bool Code::SetCodeASC2(char code[]) {
+	if (!isValidASC2(code)) {
+		return false;
+	}
+    for (int i = 0 ; i < num_code; i++) {
+        this->code[i] = code[i] - '0';
+    }
+    return true;
 }
 
 void Code::PrintCode() {
     for (int i = 0 ; i < num_code; i++) {
-        std::cout << code[i] << " ";
+        std::cout << (static_cast<int>(code[i]) & 0xFF);
     }
 }

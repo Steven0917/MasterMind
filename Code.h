@@ -17,13 +17,17 @@ public:
 
 	void CheckGuess(Code& guess, Keys& keys);
 	void MakeRandomCode();
-	void SetCode(int code[]);
+	bool SetCode(char code[]);
+	bool isValid(char code[]);
+	bool SetCodeASC2(char code[]);
+	bool isValidASC2(char code[]);
 	void PrintCode();
 
-private:
+public:
 	const static int num_code  = 4;
 	const static int num_color = 6;
-	int code[num_code] = {0};
+private:
+	char code[num_code] = {0};
 };
 
 #endif /* CODE_H_ */

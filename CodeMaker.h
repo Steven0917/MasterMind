@@ -16,7 +16,7 @@ public:
 	virtual ~CodeMaker();
 
 	virtual void MakeCode(Code& code) = 0;
-	virtual void Feedback(Code& code, Keys& keys) = 0;
+	virtual void Feedback(Code& code, Code& guess, Keys& keys) = 0;
 };
 
 #endif /* CODEMAKER_H_ */

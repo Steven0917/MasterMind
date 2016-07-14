@@ -16,8 +16,8 @@ public:
 	CodeBreaker();
 	virtual ~CodeBreaker();
 
-	virtual void Guess(Code& code, Keys& keys, int& count) = 0;
-	virtual void BreakCode() = 0;
+	virtual void Guess(Code& guess) = 0;
+	//virtual void BreakCode() = 0;
 };
 
 #endif /* CODEBREAKER_H_ */

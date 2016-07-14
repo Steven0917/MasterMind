@@ -14,6 +14,9 @@ class HumanPlayer: public CodeBreaker {
 public:
 	HumanPlayer();
 	virtual ~HumanPlayer();
+
+	virtual void Guess(Code& guess);
+	//virtual void BreakCode();
 };
 
 #endif /* HUMANPLAYER_H_ */

@@ -6,6 +6,7 @@
  */
 
 #include "Keys.h"
+#include "Code.h"
 
 Keys::Keys() {
 	// TODO Auto-generated constructor stub
@@ -31,4 +32,9 @@ int Keys::GetBlackKey() {
 int Keys::GetWhiteKey() {
 	return key[1];
 }
+
+bool Keys::isAllHit() {
+	return key[0] == Code::num_code;
+}
+
 

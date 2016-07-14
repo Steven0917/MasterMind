@@ -6,6 +6,7 @@
  */
 
 #include "AlphaCat.h"
+#include "Code.h"
 
 AlphaCat::AlphaCat() {
 	// TODO Auto-generated constructor stub
@@ -17,10 +18,9 @@ AlphaCat::~AlphaCat() {
 }
 
 void AlphaCat::MakeCode(Code& code) {
-
+	code.MakeRandomCode();
 }
 
-void AlphaCat::Feedback(Code& code, Keys& keys) {
-
+void AlphaCat::Feedback(Code& code, Code& guess, Keys& keys) {
+	code.CheckGuess(guess, keys);
 }
-

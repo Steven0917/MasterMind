@@ -15,4 +15,3 @@ CodeMaker::CodeMaker() {
 CodeMaker::~CodeMaker() {
 	// TODO Auto-generated destructor stub
 }
-
