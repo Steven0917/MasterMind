@@ -16,12 +16,6 @@ public:
 	AlphaCat();
 	virtual ~AlphaCat();
 
-//	virtual void MakeCode(Code& code);
-//	virtual void Feedback(Code& code, Code& guess, Keys& keys);
-
-	virtual void Guess(Code& guess);
-
-
 };
 
 #endif /* ALPHACAT_H_ */

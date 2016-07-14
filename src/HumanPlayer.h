@@ -11,10 +11,12 @@
 #include "CodeBreaker.h"
 #include "CodeMaker.h"
 
-class HumanPlayer: public CodeBreaker, CodeMaker {
+class HumanPlayer: public CodeBreaker, public CodeMaker {
+
 public:
 	HumanPlayer();
 	virtual ~HumanPlayer();
+
 };
 
 #endif /* HUMANPLAYER_H_ */

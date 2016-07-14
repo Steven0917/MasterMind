@@ -17,8 +17,8 @@ SimpleCodeBreakerImpl::~SimpleCodeBreakerImpl() {
 }
 
 
-void SimpleCodeBreakerImpl::Guess(Code& code) {
-	char a[4] = {0};
-	code.SetCode(a);
+void SimpleCodeBreakerImpl::Guess(Code& guess) {
+	char a[Code::num_code] = {1, 2, 3, 4};
+	guess.SetCode(a);
 }
 

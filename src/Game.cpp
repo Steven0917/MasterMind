@@ -38,12 +38,12 @@ void Game::Init() {
 }
 
 void Game::Start() {
-	PlayAsCodeBreaker();
+//	PlayAsCodeBreaker();
 	PlayAsCodeMaker();
 }
 
 void Game::PlayAsCodeBreaker() {
-	cout << endl << "Round One" << endl;
+	cout << endl << "Round One" << endl << endl;
 	cout << "Code maker  : AlphaCat" << endl;
 	cout << "Code breaker: You" << endl << endl;
 
@@ -54,19 +54,19 @@ void Game::PlayAsCodeBreaker() {
 //	code.PrintCode();
 //	cout << endl;
 
-	while (countGuess < maxGuess) {
+	isWin = false;
+	while (++countGuess <= maxGuess) {
 		human.Guess(guess);
 		alphaCat.Feedback(code, guess, keys);
 		if (keys.isAllHit()) {
 			isWin = true; // You win.
-			return;
+			break;
 		} else {
 			cout << "Black " << keys.GetBlackKey() << " White " << keys.GetWhiteKey() << endl;
-			cout << "retried " << ++countGuess << endl << endl;
+			cout << "retried " << countGuess << endl << endl;
 		}
-
 	}
-	isWin = false; // You lose.
+
 	if (isWin) {
 		cout << "Congratulations! You win in " << countGuess << " moves!" << endl << endl;
 	} else {
@@ -78,10 +78,42 @@ void Game::PlayAsCodeBreaker() {
 }
 
 void Game::PlayAsCodeMaker() {
-	cout << endl << "Round Two" << endl;
+	cout << endl << "Round Two" << endl << endl;
 	cout << "Code maker  : You" << endl;
 	cout << "Code breaker: AlphaCat" << endl << endl;
 
+	countGuess = 0;
+	human.MakeCode(code);
+
+//	cout << endl << "Code is made as ";
+//	code.PrintCode();
+//	cout << endl;
+
+	isWin = false;
+	while (++countGuess <= maxGuess) {
+		alphaCat.Guess(guess);
+		cout << endl << "Guessing ";
+		guess.PrintCode();
+		cout << endl;
+
+		human.Feedback(code, guess, keys);
+		if (keys.isAllHit()) {
+			isWin = true; // Successfully breaking the code.
+			break;
+		} else {
+			cout << "Black " << keys.GetBlackKey() << " White " << keys.GetWhiteKey() << endl;
+			cout << "retried " << countGuess << endl << endl;
+		}
+
+	}
+	if (isWin) {
+		cout << "Congratulations! AlphaCat win in " << countGuess << " moves!" << endl << endl;
+	} else {
+		cout << "AlphaCat lose in breaking the code. The right code is ";
+		code.PrintCode();
+		cout << endl << endl;
+	}
+	return;
 }
 
 void Game::End() {

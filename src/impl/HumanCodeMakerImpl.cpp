@@ -17,7 +17,6 @@ using std::endl;
 
 HumanCodeMakerImpl::HumanCodeMakerImpl() {
 	// TODO Auto-generated constructor stub
-
 }
 
 HumanCodeMakerImpl::~HumanCodeMakerImpl() {
@@ -28,7 +27,7 @@ void HumanCodeMakerImpl::MakeCode(Code& code) {
     char in[Code::num_code];
 
     while (true) {
-        cout << "Your Code: ";
+        cout << "Decide Your Code: ";
         cin  >> in;
 
         if (strlen(in) != 4) {

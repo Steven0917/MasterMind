@@ -7,11 +7,12 @@
 
 #include "AlphaCat.h"
 #include "BaseCodeMakerImpl.h"
+#include "SimpleCodeBreakerImpl.h"
 #include "Code.h"
 
 AlphaCat::AlphaCat() {
-	mpCodeMakerImpl = new BaseCodeMakerImpl();
-	mpCodeBreakerImpl = nullptr;
+	mpCodeMakerImpl   = new BaseCodeMakerImpl();
+	mpCodeBreakerImpl = new SimpleCodeBreakerImpl();
 
 }
 
@@ -24,9 +25,5 @@ AlphaCat::~AlphaCat() {
 	}
 }
 
-
-void AlphaCat::Guess(Code& guess) {
-//	guess.SetCode()
-}
 
 

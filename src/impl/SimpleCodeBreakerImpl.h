@@ -15,7 +15,7 @@ public:
 	SimpleCodeBreakerImpl();
 	virtual ~SimpleCodeBreakerImpl();
 
-	virtual void Guess(Code& code);
+	virtual void Guess(Code& guess);
 };
 
 #endif /* SIMPLECODEBREAKERIMPL_H_ */
