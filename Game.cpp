@@ -27,15 +27,25 @@ void Game::Init() {
 	cout << "Welcome to Master Mind Game!" << endl << endl;
 	cout << "Currently we support human breaker only." << endl << endl;
 
+
+	cout << "Rules:" << endl;
+	cout << "  4 code pegs with 6 colors [1, 6]" << endl;
+	cout << "  Maximum 10 guesses" << endl;
+	cout << "  Key pegs, Black: correct in both color and position" << endl;
+	cout << "            White: correct color in the wrong position" << endl << endl;
+
+	cout << "Please check below for more details" << endl;
+	cout << "https://en.wikipedia.org/wiki/Mastermind_%28board_game%29" << endl << endl;
+
 	cout << "Code maker  : AlphaCat" << endl;
-	cout << "Code breaker: You" << endl;
+	cout << "Code breaker: You" << endl << endl;
 
 	countGuess = 0;
 }
 
 void Game::Start() {
 	alphaCat.MakeCode(code);
-	cout << endl << "Code is made: **** " << endl;
+	cout << endl << "Code is made: **** " << endl << endl;
 //	cout << endl << "Code is made as ";\
 //	code.PrintCode();
 //	cout << endl;
