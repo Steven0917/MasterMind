@@ -4,24 +4,30 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../AlphaCat.cpp \
 ../Code.cpp \
 ../CodeBreaker.cpp \
 ../CodeMaker.cpp \
 ../Game.cpp \
+../HumanPlayer.cpp \
 ../Keys.cpp 
 
 OBJS += \
+./AlphaCat.o \
 ./Code.o \
 ./CodeBreaker.o \
 ./CodeMaker.o \
 ./Game.o \
+./HumanPlayer.o \
 ./Keys.o 
 
 CPP_DEPS += \
+./AlphaCat.d \
 ./Code.d \
 ./CodeBreaker.d \
 ./CodeMaker.d \
 ./Game.d \
+./HumanPlayer.d \
 ./Keys.d 
 
 

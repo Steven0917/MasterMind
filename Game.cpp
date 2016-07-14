@@ -22,6 +22,7 @@ Game::~Game() {
 int main() {
 	cout << "Welcome to Master Mind Game!" << endl;
 
+
 	//TODO:
     return 0;
 }
