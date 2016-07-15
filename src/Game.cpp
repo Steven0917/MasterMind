@@ -33,7 +33,7 @@ void Game::Init() {
 	cout << "4. Two round games, you will play as code breaker and code make separately." << endl << endl;
 
 	cout << "Please check below wiki page for more details:" << endl;
-	cout << "https://en.wikipedia.org/wiki/Mastermind_%28board_game%29" << endl << endl;
+	cout << "https://en.wikipedia.org/wiki/Mastermind_(board_game)" << endl << endl;
 	cout << "*************************************************************************" << endl;
 }
 
@@ -55,9 +55,12 @@ void Game::PlayAsCodeBreaker() {
 //	cout << endl;
 
 	isWin = false;
+	bool isFirst = true;
 	while (++countGuess <= maxGuess) {
-		human.Guess(guess);
+		human.Guess(guess, isFirst);
+		isFirst = false;
 		alphaCat.Feedback(code, guess, keys);
+		human.ProcFeedback(guess, keys);
 		if (keys.isAllHit()) {
 			isWin = true; // You win.
 			break;
@@ -85,18 +88,19 @@ void Game::PlayAsCodeMaker() {
 	countGuess = 0;
 	human.MakeCode(code);
 
-//	cout << endl << "Code is made as ";
-//	code.PrintCode();
-//	cout << endl;
-
 	isWin = false;
+
+	guess.Reset();
+	bool isFirst = true;
 	while (++countGuess <= maxGuess) {
-		alphaCat.Guess(guess);
+		alphaCat.Guess(guess, isFirst);
+		isFirst = false;
 		cout << endl << "Guessing ";
 		guess.PrintCode();
 		cout << endl;
-
 		human.Feedback(code, guess, keys);
+		alphaCat.ProcFeedback(guess, keys);
+
 		if (keys.isAllHit()) {
 			isWin = true; // Successfully breaking the code.
 			break;

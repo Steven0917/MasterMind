@@ -18,6 +18,7 @@ public:
 	int GetBlackKey();
 	int GetWhiteKey();
 	bool isAllHit();
+	bool equal(Keys& keys);
 
 private:
 	/* A colored or black key peg is placed for each code peg from the guess

@@ -44,3 +44,4 @@ void HumanCodeMakerImpl::MakeCode(Code& code) {
         return;
     }
 }
+

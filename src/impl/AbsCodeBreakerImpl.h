@@ -14,7 +14,8 @@ public:
 	AbsCodeBreakerImpl();
 	virtual ~AbsCodeBreakerImpl();
 
-	virtual void Guess(Code& guess) = 0;
+	virtual void Guess(Code& guess, bool isFirst) = 0;
+	virtual void ProcFeedback(Code& guess, Keys& keys) = 0;
 };
 
 

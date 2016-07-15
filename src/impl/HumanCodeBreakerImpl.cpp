@@ -23,7 +23,7 @@ HumanCodeBreakerImpl::~HumanCodeBreakerImpl() {
 	// TODO Auto-generated destructor stub
 }
 
-void HumanCodeBreakerImpl::Guess(Code& guess) {
+void HumanCodeBreakerImpl::Guess(Code& guess, bool isFirst) {
     char in[Code::num_code];
 
     while (true) {
@@ -43,4 +43,8 @@ void HumanCodeBreakerImpl::Guess(Code& guess) {
         guess.SetCodeASC2(in);
         return;
     }
+}
+
+void HumanCodeBreakerImpl::ProcFeedback(Code& guess, Keys& keys) {
+	//Do nothing.
 }

@@ -16,7 +16,8 @@ public:
 	HumanCodeBreakerImpl();
 	virtual ~HumanCodeBreakerImpl();
 
-	virtual void Guess(Code& code);
+	virtual void Guess(Code& code, bool isFirst);
+	virtual void ProcFeedback(Code& guess, Keys& keys);
 };
 
 #endif /* HUMANCODEBREAKERIMPL_H_ */

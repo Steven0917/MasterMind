@@ -113,3 +113,27 @@ void Code::PrintCode() {
         std::cout << (static_cast<int>(code[i]) & 0xFF);
     }
 }
+
+void Code::Reset() {
+    for (int i = 0 ; i < num_code; i++) {
+        this->code[i] = 0;
+    }
+}
+
+void Code::SetCode(char m, char n, char j, char k) {
+	this->code[0] = m;
+	this->code[1] = n;
+	this->code[2] = j;
+	this->code[3] = k;
+}
+
+bool Code::isValid() {
+    for (int i = 0 ; i < num_code; i++) {
+    	//Valid color [1, num_color]
+        if ( this->code[i] <= 0 || this->code[i] > num_color ) {
+        	return false;
+        }
+    }
+    return true;
+}
+

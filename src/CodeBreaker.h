@@ -19,7 +19,8 @@ public:
 	CodeBreaker();
 	virtual ~CodeBreaker();
 
-	virtual void Guess(Code& guess);
+	virtual void Guess(Code& guess, bool isFirst);
+	virtual void ProcFeedback(Code& guess, Keys& keys);
 	virtual void SetCodeBreakerImpl(AbsCodeBreakerImpl* pImpl);
 
 protected:

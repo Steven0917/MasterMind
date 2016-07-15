@@ -22,10 +22,15 @@ public:
 	bool SetCodeASC2(char code[]);
 	bool isValidASC2(char code[]);
 	void PrintCode();
+	void Reset();
+	bool isValid();
+	void SetCode(char m, char n, char j, char k);
+
 
 public:
-	const static int num_code  = 4;
-	const static int num_color = 6;
+	const static char num_code  = 4;
+	const static char num_color = 6;
+
 private:
 	char code[num_code] = {0};
 };

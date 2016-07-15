@@ -37,4 +37,11 @@ bool Keys::isAllHit() {
 	return key[0] == Code::num_code;
 }
 
+bool Keys::equal(Keys& keys) {
+	if (this->GetBlackKey() == keys.GetBlackKey() &&
+		this->GetWhiteKey() == keys.GetWhiteKey()) {
+		return true;
+	}
+	return false;
+}
 

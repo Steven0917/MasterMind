@@ -18,9 +18,14 @@ CodeBreaker::~CodeBreaker() {
 	// TODO Auto-generated destructor stub
 }
 
-void CodeBreaker::Guess(Code& guess) {
+void CodeBreaker::Guess(Code& guess, bool isFirst = false) {
 	assert(mpCodeBreakerImpl);
-	mpCodeBreakerImpl->Guess(guess);
+	mpCodeBreakerImpl->Guess(guess, isFirst);
+}
+
+void CodeBreaker::ProcFeedback(Code& guess, Keys& keys) {
+	assert(mpCodeBreakerImpl);
+	mpCodeBreakerImpl->ProcFeedback(guess, keys);
 }
 
 void CodeBreaker::SetCodeBreakerImpl(AbsCodeBreakerImpl* pImpl) {
