@@ -36,7 +36,7 @@ void HumanCodeMakerImpl::MakeCode(Code& code) {
         }
 
         if (!code.isValidASC2(in)) {
-            cout << "Invalid Input!!! - Valid color: [1, " << Code::num_color << "]" << endl;
+            cout << "Invalid Input!!! - Valid color: [1, " << (static_cast<int>(Code::num_color) & 0xFF) << "]" << endl;
             continue;
         }
 

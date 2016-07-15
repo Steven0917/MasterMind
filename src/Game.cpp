@@ -38,7 +38,7 @@ void Game::Init() {
 }
 
 void Game::Start() {
-//	PlayAsCodeBreaker();
+	PlayAsCodeBreaker();
 	PlayAsCodeMaker();
 }
 
@@ -70,18 +70,22 @@ void Game::PlayAsCodeBreaker() {
 		}
 	}
 
+	cout << endl;
+	cout << endl << "**************************************************" << endl << endl;
+	cout << "Round Completed!" << endl;
 	if (isWin) {
-		cout << "Congratulations! You win in " << countGuess << " moves!" << endl << endl;
+		cout << "You succeed in breaking the code in " << countGuess << " moves!" << endl;
 	} else {
-		cout << "You lose in breaking the code. The right code is ";
+		cout << "You fail in breaking the code. The right code is ";
 		code.PrintCode();
-		cout << endl << endl;
+		cout << endl;
 	}
+	cout << endl << "**************************************************" << endl;
 	return;
 }
 
 void Game::PlayAsCodeMaker() {
-	cout << endl << "Round Two" << endl << endl;
+	cout << endl << "Round Two" << endl;
 	cout << "Code maker  : You" << endl;
 	cout << "Code breaker: AlphaCat" << endl << endl;
 
@@ -106,17 +110,21 @@ void Game::PlayAsCodeMaker() {
 			break;
 		} else {
 			cout << "Black " << keys.GetBlackKey() << " White " << keys.GetWhiteKey() << endl;
-			cout << "retried " << countGuess << endl << endl;
+			cout << "retried " << countGuess << endl;
 		}
+	}
 
-	}
+	cout << endl;
+	cout << endl << "**************************************************" << endl << endl;
+	cout << "Round Completed!" << endl;
 	if (isWin) {
-		cout << "Congratulations! AlphaCat win in " << countGuess << " moves!" << endl << endl;
+		cout << "AlphaCat succeeds in breaking the code in " << countGuess << " moves!" << endl;
 	} else {
-		cout << "AlphaCat lose in breaking the code. The right code is ";
+		cout << "AlphaCat fails in breaking the code. The right code is ";
 		code.PrintCode();
-		cout << endl << endl;
+		cout << endl;
 	}
+	cout << endl << "**************************************************" << endl;
 	return;
 }
 
