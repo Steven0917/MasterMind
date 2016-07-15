@@ -10,6 +10,7 @@
 
 #include "AlphaCat.h"
 #include "HumanPlayer.h"
+#include "AbsPlayer.h"
 #include "Code.h"
 #include "Keys.h"
 
@@ -17,23 +18,25 @@ class Game {
 public:
 	Game();
 	virtual ~Game();
-	void Init();
+
 	void Start();
 	void End();
+	void PlayGame();
 
 protected:
-	void PlayAsCodeBreaker();
-	void PlayAsCodeMaker();
+	void Init();
+	void Help();
+	void PlayGame(AbsPlayer& maker, AbsPlayer& breaker, int round);
+	int  PlayGame(CodeMaker& maker, CodeBreaker& breaker);
 
 private:
-	bool        isWin;
-	const int   maxGuess = 10;
-    int         countGuess;
 	AlphaCat    alphaCat;
 	HumanPlayer human;
 	Code        code;
 	Code        guess;
 	Keys        keys;
+
+	const int   maxMoves = 8;
 };
 
 #endif /* GAME_H_ */

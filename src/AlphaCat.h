@@ -8,10 +8,10 @@
 #ifndef ALPHACAT_H_
 #define ALPHACAT_H_
 
-#include "CodeMaker.h"
-#include "CodeBreaker.h"
+#include "AbsPlayer.h"
 
-class AlphaCat: public CodeMaker, public CodeBreaker {
+class AlphaCat: public AbsPlayer {
+
 public:
 	AlphaCat();
 	virtual ~AlphaCat();

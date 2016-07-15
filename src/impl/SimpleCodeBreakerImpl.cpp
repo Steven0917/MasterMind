@@ -31,6 +31,10 @@ void SimpleCodeBreakerImpl::Guess(Code& guess, bool isFirst) {
 		this->isFirst = false;
 		guess.SetCode(next);
 	}
+
+	cout << "Guess: ";
+	guess.PrintCode();
+	cout << endl;
 }
 
 void SimpleCodeBreakerImpl::ProcFeedback(Code& guess, Keys& keys) {

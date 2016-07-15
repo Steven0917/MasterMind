@@ -8,12 +8,12 @@
 #include "AlphaCat.h"
 #include "BaseCodeMakerImpl.h"
 #include "SimpleCodeBreakerImpl.h"
-#include "Code.h"
 
 AlphaCat::AlphaCat() {
 	mpCodeMakerImpl   = new BaseCodeMakerImpl();
 	mpCodeBreakerImpl = new SimpleCodeBreakerImpl();
 
+	SetName("AlphaCat");
 }
 
 AlphaCat::~AlphaCat() {
@@ -24,6 +24,4 @@ AlphaCat::~AlphaCat() {
 		delete mpCodeBreakerImpl;
 	}
 }
-
-
 

@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/AbsPlayer.cpp \
 ../src/AlphaCat.cpp \
 ../src/Code.cpp \
 ../src/CodeBreaker.cpp \
@@ -13,6 +14,7 @@ CPP_SRCS += \
 ../src/Keys.cpp 
 
 OBJS += \
+./src/AbsPlayer.o \
 ./src/AlphaCat.o \
 ./src/Code.o \
 ./src/CodeBreaker.o \
@@ -22,6 +24,7 @@ OBJS += \
 ./src/Keys.o 
 
 CPP_DEPS += \
+./src/AbsPlayer.d \
 ./src/AlphaCat.d \
 ./src/Code.d \
 ./src/CodeBreaker.d \

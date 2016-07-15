@@ -27,7 +27,7 @@ void HumanCodeBreakerImpl::Guess(Code& guess, bool isFirst) {
     char in[Code::num_code];
 
     while (true) {
-        cout << "Your guess: ";
+        cout << "Guess: ";
         cin  >> in;
 
         if (strlen(in) != 4) {
@@ -36,7 +36,7 @@ void HumanCodeBreakerImpl::Guess(Code& guess, bool isFirst) {
         }
 
         if (!guess.isValidASC2(in)) {
-            cout << "Invalid Input!!! - Valid color: [1, " << Code::num_color << "]" << endl;
+            cout << "Invalid Input!!! - Valid color: [1, " << (static_cast<int>(Code::num_color) & 0xFF) << "]" << endl;
             continue;
         }
 

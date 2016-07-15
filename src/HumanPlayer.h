@@ -8,10 +8,9 @@
 #ifndef HUMANPLAYER_H_
 #define HUMANPLAYER_H_
 
-#include "CodeBreaker.h"
-#include "CodeMaker.h"
+#include "AbsPlayer.h"
 
-class HumanPlayer: public CodeBreaker, public CodeMaker {
+class HumanPlayer: public AbsPlayer {
 
 public:
 	HumanPlayer();
